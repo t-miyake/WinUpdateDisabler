@@ -1,0 +1,20 @@
+﻿<Window x:Class="WinUpdateDisabler.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WinUpdateDisabler"
+        mc:Ignorable="d"
+        Title="WinUpdateDisabler" Height="150" Width="222" ResizeMode="NoResize">
+    <Window.DataContext>
+        <local:ViewModel />
+    </Window.DataContext>
+    <StackPanel>
+        <Label x:Name="Info" Content="Disable Windows Update."/>
+        <Label x:Name="Now" Content="{Binding CurrentStateText,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
+        <Grid Margin="20">
+            <Button x:Name="Enable" Content="Enable" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="75" Command="{Binding Enable}" IsEnabled="{Binding EnableButton }"/>
+            <Button x:Name="DIsable" Content="Disable" HorizontalAlignment="Right" VerticalAlignment="Center" Width="75" Command="{Binding Disable}" IsEnabled="{Binding DisableButton }"/>
+        </Grid>
+    </StackPanel>
+</Window>
