@@ -48,6 +48,7 @@ namespace WinUpdateDisabler
         internal void DoEnable()
         {
             DeleteReg(@"SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate");
+            WriteReg(@"SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU", "UseWUServer", "0", RegistryValueKind.DWord);
         }
 
         private void WriteReg(string subKey, string keyName, string value, RegistryValueKind kind)
